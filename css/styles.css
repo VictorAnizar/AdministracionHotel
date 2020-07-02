@@ -1,0 +1,187 @@
+/* # hace referencia a id's y . hace referencia a clases 
+---------------
+Margin: La propiedad CSS margin establece el margen para los cuatro lados
+Padding: El área de padding es el espacio entre el contenido del elemento y su borde (border) no se permiten valores negativos.
+Width: La propiedad CSS width especifica la anchura del area de contenido de un elemento.
+height: La propiedad CSS height especifica la altura del area de contenido de un elemento.;
+
+*/
+
+/*Estilos de las áreas donde se introduce el correo y contraseña*/
+
+input[type="text"],input[type="password"]{
+      outline: none;
+      padding: 20px;
+      display: block;
+      width: 300px;
+      border-radius: 3px;
+      border: 1px solid #eee;
+      margin: 20px auto;
+    }
+/*Estilos del botón enviar*/
+input[type="submit"]{
+      padding: 10px;
+      color: #fff;
+      background: #0098cb;
+      width: 320px;
+      margin: 20px auto;
+      margin-top: 0;
+      border: 0;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+input[type="submit"]:hover{
+      background-color: #00b8eb;
+    }
+
+header{
+	border-bottom: 2px solid #eee;
+	padding: 20px 0;
+	margin-bottom: 10px ;
+	width: 100%;
+	text-align: center;
+}
+
+.tabla{
+	text-align: center;
+}
+
+
+.navbar
+{
+	background-color: #e3f2fd;
+}
+
+header a
+{
+	text-decoration: none;
+	color: #333;
+}
+
+.fondoPlaya1
+{
+	background-image: url(https://media1.tenor.com/images/ae073ecc1794eb97cec78b3206a6025b/tenor.gif?itemid=4918224);
+	background-size: 100%;
+
+}
+
+.habitaciones
+{
+
+	text-align: center;
+}
+
+
+.carouselExampleFade
+{
+	width: 640px;
+	height: 360px;
+}
+
+.carousel {
+  height: 66.67%;
+  margin-bottom: 0; /* ¿por qué, carousel, por qué? */
+}
+
+.fondo1{
+	height: 500px;
+	text-align: center;
+	/*margin: 30px;*/
+	border-style: double;
+	border-width: 10px;
+	border-color: black;
+	
+  background-image: linear-gradient(#07FDC0, black);
+
+}
+.fondo2{
+	height: 500px;
+	text-align: center;
+		/*margin: 30px;*/
+		border-style: double;
+		border-width: 20px;
+		border-color: black;
+		
+  background-image: linear-gradient(black, #07FDC0);
+}
+.fondo3{
+	height: 500px;
+	text-align: center;
+		/*margin: 30px;*/
+		border-style: double;
+		border-width: 20px;
+		border-color: black;
+		
+  background-image: linear-gradient(#07FDC0, black);
+
+
+}
+.fondoP{
+	height: 1500px;
+	width: auto;
+	text-align: center;
+		/*margin: 30px;*/
+		border-style: double;
+		border-width: 20px;
+		border-color: black;
+		
+  background-image: linear-gradient(#07FDC0, black);
+
+
+}
+
+
+.card-img-top
+{
+	height: 100px;
+	width: auto;
+}
+
+.texto
+{
+	font-family: 'Baloo Bhai', cursive;
+}
+
+.textoIndex1
+{
+	font-family: 'Baloo Bhai', cursive;
+}
+.header {
+    color: #36A0FF;
+    font-size: 27px;
+    padding: 10px;
+}
+
+.bigicon {
+    font-size: 35px;
+    color: #36A0FF;
+}
+
+.conoc
+{
+	color: white;
+}
+.d
+{
+	text-align: center;
+ width: 50px; height: 50px;
+
+}
+
+.tituloP
+{
+	font-family: 'Anton', sans-serif;
+}
+
+
+.tituloIndex
+{
+	font-family: 'Anton', sans-serif;
+}
+
+.redes
+{
+	height: 75px;
+	width: 75px;
+}
