@@ -14,6 +14,9 @@
    else{//si no hay ningun usuario registrado no se accede al sistema, sino que se redirecciona a la parte de iniciar sesión o registrarse
       header("Location: /ProyectoIngSW");
    }
+
+   
+   
    ?>
 <!DOCTYPE html>
 <html >
@@ -22,6 +25,49 @@
       <!--Link para la fuente 'Roboto'-->
       <link rel="stylesheet" href="css/styles.css">
       <link rel="stylesheet" href="css/bootstrap.min.css">
+      <script type="text/javascript">
+         //se ejecuta asíncronamente
+
+           function ajax()
+           {
+
+            /*
+            XMLHttpRequest:
+            Proporciona una forma fácil de obtener información de una URL sin tener que recargar la página completa. Una página web puede actualizar sólo una parte de la página sin interrumpir lo que el usuario está haciendo. XMLHttpRequest es ampliamente usado en la programación AJAX.*/
+            var req = new XMLHttpRequest();
+           
+            /*
+            onreadystatechange:
+            Una función del objeto JavaScript que se llama cuando el atributo readyState cambia.
+            */
+            req.onreadystatechange = function(){
+               /*
+             readyState:
+             0 UNINITIALIZED  todavía no se llamó a open().
+            1  LOADING  todavía no se llamó a send().
+            2  LOADED   send() ya fue invocado, y los encabezados y el estado están disponibles.
+            3  INTERACTIVE Descargando; responseText contiene información parcial.
+            4  COMPLETED   La operación está terminada.
+         
+            status:  
+            El estado de la respuesta al pedido. Éste es el código HTTPresult (por ejemplo, status es 200 por un pedido exitoso). Sólo lectura.
+               */
+               if (req.readyState==4 && req.status==200) {
+                  /*
+                  responseText:
+                  La respuesta al pedido como texto, o null si el pedido no fue exitoso o todavía no se envió. Sólo lectura.
+                  */
+                  document.getElementById('tablaHabs').innerHTML = req.responseText;
+               }
+            }
+            req.open('GET','tablaHabs.php',true);//Inicializa el pedido
+            req.send();//envia el pedido
+           }
+           //Repite la funcion cada segundo
+           setInterval(function(){ajax();},1000);
+           
+           
+      </script>
       <title>Listado de Habitaciones</title>
       <style>
          #FuenteRoboto
@@ -82,47 +128,12 @@
       </header>
       
 
-
+      
       <button type="button" class="btn btn-outline-primary btn-sm m-0 waves-effect">
       <a href="nuevaReservacion.php"> Nueva reservación</a>
       </button>
-      <div class="tabla" style="text-align:center;width:100%; background-color: white;">
-         <table border="1" class="table table-striped table-responsive-md">
-            <tr>Habitaciones registradas</tr>
-            <tr>
-               <!--Columnas-->
-               <th>Número</th>
-               <th>Piso</th>
-               <th>Dsiponibilidad</th>
-               <th>Tipo</th>
-               <th>Amenidades</th>
-            </tr>
-            <?php
-               try {
-               
-                   $db = new PDO('mysql:host=127.0.0.1;dbname=hotel;charset=utf8', 'root', '');
-                   //$db = new PDO('sqlsrv:host=127.0.0.1;schema=hotel', 'root', 'adrgcmsht578t53$'); // Si en el futuro la pasan a SQL Server
-               
-                   $resultado = $db->query("SELECT id_habitacion, numero,amenidades,h.activo, piso, nombre tipo
-                                           FROM habitacion h INNER JOIN tipo_habitacion th ON h.id_tipo_habitacion = th.id_tipo_habitacion
-                                           ");
-               
-                   foreach ($resultado as $habitacion) { ?>
-            <tr>
-               
-               <td><?php echo $habitacion['numero']; ?></td>
-               <td><?php echo $habitacion['piso']; ?></td>
-               <td><?php echo $habitacion['activo']; ?></td>
-               <td><?php echo $habitacion['tipo']; ?></td>
-               <td><?php echo $habitacion['amenidades']; ?></td>
-            </tr>
-            <?php }
-               } catch (Exception $ex) {
-                   echo 'Ocurrió un error en la conexión: ' . $ex->getMessage();
-               }
-               
-               ?>
-         </table>
+      <div id="tablaHabs" class="tabla" style="text-align:center;width:100%; background-color: white;">
+         
       </div>
       
       <script src="js/jquery.js" type="text/javascript">  </script>
